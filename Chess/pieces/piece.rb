@@ -1,8 +1,12 @@
-require_relative "board"
-
+#require_relative ".././board.rb"
+require "colorize"
+require "byebug" 
 class Piece
-    def initialize(pos) #(color, board, pos)
-        # @color = color
+    attr_reader :board, :color, :pos
+    attr_accessor :pos
+
+    def initialize (color=nil, board=nil, pos=nil)
+        @color = color
         @board = board
         @pos = pos
     end
@@ -12,16 +16,15 @@ class Piece
     end
 
     def valid_moves
-        moves.select do |pos|
-            row,col = pos
-            row.between?(0,7) && col.between?(0,7)
-        end
+       
     end
 
-    def pos=(val)
-        
-        @board[self.pos] = val
-        # row,col = self.pos#.pos
-        # @board[row][col] = self
-    end
+    # def pos=(val)
+    #     debugger
+    #     @board[self.pos].pos = val
+    #     debugger
+    #     @pos = val
+    #     # row,col = self.pos#.pos
+    #     # @board[row][col] = self
+    # end
 end
